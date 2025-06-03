@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Опознанный енот](https://up.htmlacademy.ru/javascript-individual/2/user/2631655).
-* Наставник: `Неизвестно`.
+* Наставник: [Павел Ившин](https://htmlacademy.ru/profile/id818775).
 
 ---
 
