@@ -1,13 +1,13 @@
 import { dataGenerate } from './data.js';
 
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const userPictures = document.querySelector('.pictures');
+const template = document.querySelector('#picture').content.querySelector('.picture');
+const userPhoto = document.querySelector('.pictures');
 const photoDataFragment = document.createDocumentFragment();
 const photoData = dataGenerate();
 
 
 photoData.forEach(({ url, description, likes, comments }) => {
-  const photoElement = pictureTemplate.cloneNode(true);
+  const photoElement = template.cloneNode(true);
   photoElement.querySelector('.picture__img').setAttribute('src', url);
   photoElement.querySelector('.picture__img').setAttribute('alt', description);
   photoElement.querySelector('.picture__likes').textContent = likes;
@@ -15,6 +15,6 @@ photoData.forEach(({ url, description, likes, comments }) => {
   photoDataFragment.appendChild(photoElement);
 });
 
-userPictures.appendChild(photoDataFragment);
+userPhoto.appendChild(photoDataFragment);
 
-export { userPictures };
+export { userPhoto };
