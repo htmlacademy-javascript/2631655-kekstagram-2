@@ -3,4 +3,4 @@ import { userPictures } from './user-pictures.js';
 
 
 dataGenerate();
-
+userPictures();
