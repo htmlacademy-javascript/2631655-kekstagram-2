@@ -1,4 +1,4 @@
-import { getRandomNumber, uniqueRandomNumberGenerator } from './util.js';
+import { getRandomNumber, uniqueRandomNumberGenerator } from './utils.js';
 
 const MIN_NUMBER_LIKE = 15;
 const MAX_NUMBER_LIKE = 200;
