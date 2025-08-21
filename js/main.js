@@ -1,6 +1,10 @@
-import { dataGenerate } from './data.js';
-import { userPictures } from './user-pictures.js';
+import { thumbnailsData } from './thumbnails.js';
+import { showBigPicture } from './popup.js';
 
 
-dataGenerate();
-userPictures();
+thumbnailsData.addEventListener('click', (evt) => {
+  const currentPicture = evt.target.closest('.picture');
+  if (currentPicture) {
+    showBigPicture(+currentPicture.dataset.id);
+  }
+});

@@ -7,8 +7,7 @@ const MAX_NUMBER_AVATAR = 6;
 const MIN_NUMBER_COMMENT = 0;
 const MAX_NUMBER_COMMENT = 30;
 const MIN_NUMBER_ID = 1;
-const MAX_NUMBER_ID = 9999;
-const MIN_NUMBER_URL = 1;
+const MAX_NUMBER_ID = 999;
 const MAX_NUMBER_URL = 25;
 const MIN_NUMBER_MESSAGE = 0;
 const MAX_NUMBER_MESSAGE = 1;
@@ -57,8 +56,10 @@ const MESSAGES = [
 const DESCRIPTION =
   'Эта фотография передает искреннюю улыбку молодого человека, который наслаждается моментом. Его глаза светятся радостью, а фон, размытый и теплый, подчеркивает атмосферу счастья и легкости.';
 
+const getNextNumber = (start = MIN_NUMBER_ID) => () => start++;
+const getPhotoId = getNextNumber();
+const getUrlId = getNextNumber();
 const getRandomIdFromRange = uniqueRandomNumberGenerator(MIN_NUMBER_ID, MAX_NUMBER_ID);
-const getRandomUrlFromRange = uniqueRandomNumberGenerator(MIN_NUMBER_URL, MAX_NUMBER_URL);
 const getRandomMessageFromRange = uniqueRandomNumberGenerator(MIN_NUMBER_COMMENT, MAX_NUMBER_COMMENT);
 
 const getRandomUniqueMessages = (quantity = MIN_NUMBER_MESSAGE) => {
@@ -82,14 +83,14 @@ const getCommentData = () => ({
   name: NAMES[getRandomNumber(MIN_NUMBER_NAME, MAX_NUMBER_NAME)]
 });
 
-
 const getPhotoData = () => ({
-  url: `photos/${getRandomUrlFromRange()}.jpg`,
+  id: getPhotoId(),
+  url: `photos/${getUrlId()}.jpg`,
   description: DESCRIPTION,
   likes: getRandomNumber(MIN_NUMBER_LIKE, MAX_NUMBER_LIKE),
   comments: Array.from({ length: getRandomMessageFromRange() }, getCommentData),
 });
 
-const dataGenerate = () => Array.from({ length: MAX_NUMBER_URL }, getPhotoData);
+const photoDataGenerate = () => Array.from({ length: MAX_NUMBER_URL }, getPhotoData);
 
-export { dataGenerate };
+export { photoDataGenerate };
