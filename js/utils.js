@@ -11,7 +11,7 @@ const uniqueRandomNumberGenerator = (min, max) => {
   return () => {
     let currentValue = getRandomNumber(min, max);
 
-    if (previousValues.length >= max - min + 1) {
+    if (previousValues.length >= (max - min + 1)) {
       return null;
     }
 
@@ -24,4 +24,6 @@ const uniqueRandomNumberGenerator = (min, max) => {
   };
 };
 
-export {getRandomNumber, uniqueRandomNumberGenerator};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomNumber, uniqueRandomNumberGenerator, isEscapeKey};
